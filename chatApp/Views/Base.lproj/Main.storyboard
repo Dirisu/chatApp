@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="EgA-YH-5EX">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="QHi-tC-LkD">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
@@ -8,10 +8,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Welcome View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="chatApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="WelcomeViewController" customModule="chatApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -26,7 +26,9 @@
                                     <fontDescription key="titleFontDescription" type="system" pointSize="25"/>
                                 </buttonConfiguration>
                                 <connections>
-                                    <segue destination="OvQ-Zn-uQ6" kind="show" id="EuE-Qy-RIe"/>
+                                    <action selector="RegisterButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="mhp-qG-b4W"/>
+                                    <action selector="registerButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="UnI-hJ-xAf"/>
+                                    <segue destination="OvQ-Zn-uQ6" kind="show" id="NpN-xC-XMK"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eTC-eF-D8y">
@@ -39,7 +41,9 @@
                                     <fontDescription key="titleFontDescription" type="system" pointSize="25"/>
                                 </buttonConfiguration>
                                 <connections>
-                                    <segue destination="qGU-Ks-Odq" kind="show" id="oSN-AJ-Ufs"/>
+                                    <action selector="LoginButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="CcE-5w-lbu"/>
+                                    <action selector="loginButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="clO-KN-hrE"/>
+                                    <segue destination="qGU-Ks-Odq" kind="show" id="PAM-7B-beD"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="ChatME" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="669-1E-sqa">
@@ -54,15 +58,19 @@
                         <color key="backgroundColor" systemColor="tintColor"/>
                     </view>
                     <navigationItem key="navigationItem" id="okZ-iO-Gbh"/>
+                    <connections>
+                        <outlet property="ChatApp" destination="669-1E-sqa" id="qRi-le-xao"/>
+                        <outlet property="chatApp" destination="669-1E-sqa" id="qRQ-KU-w0W"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="939.13043478260875" y="57.589285714285708"/>
+            <point key="canvasLocation" x="1849.2753623188407" y="57.589285714285708"/>
         </scene>
-        <!--View Controller-->
+        <!--Register View Controller-->
         <scene sceneID="aXE-Kx-d8y">
             <objects>
-                <viewController id="OvQ-Zn-uQ6" customClass="ViewController" customModule="chatApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="OvQ-Zn-uQ6" customClass="RegisterViewController" customModule="chatApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Zyy-ad-cFj">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -87,6 +95,10 @@
                                 <buttonConfiguration key="configuration" style="plain" title="Register">
                                     <fontDescription key="titleFontDescription" type="system" weight="medium" pointSize="20"/>
                                 </buttonConfiguration>
+                                <connections>
+                                    <action selector="RegisterButton:" destination="OvQ-Zn-uQ6" eventType="touchUpInside" id="eCv-0x-AnY"/>
+                                    <action selector="registerButton:" destination="OvQ-Zn-uQ6" eventType="touchUpInside" id="BAf-oX-h1k"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Qzm-sg-Z4R"/>
@@ -94,17 +106,21 @@
                     </view>
                     <navigationItem key="navigationItem" id="l3o-MU-Mas"/>
                     <connections>
-                        <segue destination="BaC-41-Uiu" kind="show" id="349-MX-uMn"/>
+                        <outlet property="EmailTextField" destination="x4W-EH-hmr" id="Xqc-7P-ET1"/>
+                        <outlet property="PasswordTextField" destination="32n-H6-Ndm" id="Iv0-Ph-Nsi"/>
+                        <outlet property="emailTextField" destination="x4W-EH-hmr" id="nL3-Je-CRR"/>
+                        <outlet property="passwordTextField" destination="32n-H6-Ndm" id="8Qm-Qj-T6d"/>
+                        <segue destination="BaC-41-Uiu" kind="show" identifier="RegisterToChat" id="349-MX-uMn"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mDD-0L-WGq" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1773.913043478261" y="-343.52678571428572"/>
+            <point key="canvasLocation" x="2684.057971014493" y="-343.52678571428572"/>
         </scene>
-        <!--View Controller-->
+        <!--Chat View Controller-->
         <scene sceneID="hpP-YY-PRp">
             <objects>
-                <viewController id="BaC-41-Uiu" customClass="ViewController" customModule="chatApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BaC-41-Uiu" customClass="ChatViewController" customModule="chatApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="yjW-IW-NVY">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -136,19 +152,27 @@
                     </view>
                     <toolbarItems>
                         <barButtonItem style="plain" systemItem="flexibleSpace" id="oOO-jb-yXP"/>
-                        <barButtonItem systemItem="reply" id="EXB-px-IUb"/>
+                        <barButtonItem systemItem="reply" id="EXB-px-IUb">
+                            <connections>
+                                <action selector="sendButton:" destination="BaC-41-Uiu" id="Ks4-fe-KTe"/>
+                            </connections>
+                        </barButtonItem>
                     </toolbarItems>
                     <navigationItem key="navigationItem" id="sqW-2P-eKv"/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="ChatArea" destination="tKS-Pq-Mei" id="DUb-rM-mZs"/>
+                        <outlet property="chatArea" destination="tKS-Pq-Mei" id="vj1-xs-6dz"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mRi-J9-xSC" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2769.5652173913045" y="57.589285714285708"/>
+            <point key="canvasLocation" x="3679.7101449275365" y="57.589285714285708"/>
         </scene>
-        <!--View Controller-->
+        <!--Login View Controller-->
         <scene sceneID="sIm-vH-5oa">
             <objects>
-                <viewController id="qGU-Ks-Odq" customClass="ViewController" customModule="chatApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="qGU-Ks-Odq" customClass="LoginViewController" customModule="chatApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="wbo-z8-5Pr">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -173,6 +197,10 @@
                                 <buttonConfiguration key="configuration" style="plain" title="Login">
                                     <fontDescription key="titleFontDescription" type="system" weight="medium" pointSize="20"/>
                                 </buttonConfiguration>
+                                <connections>
+                                    <action selector="LoginButton:" destination="qGU-Ks-Odq" eventType="touchUpInside" id="N3k-cN-erL"/>
+                                    <action selector="loginButton:" destination="qGU-Ks-Odq" eventType="touchUpInside" id="Ja1-mG-9dC"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="BgE-3h-h5m"/>
@@ -180,30 +208,34 @@
                     </view>
                     <navigationItem key="navigationItem" id="3o8-gr-5Cs"/>
                     <connections>
-                        <segue destination="BaC-41-Uiu" kind="show" id="LON-dt-XIc"/>
+                        <outlet property="EmailTextField" destination="qiE-3c-wLQ" id="UgI-hz-Y5w"/>
+                        <outlet property="PasswordTextField" destination="9cl-x1-lbY" id="gBZ-sx-gbg"/>
+                        <outlet property="emailTextField" destination="qiE-3c-wLQ" id="Bom-3y-JqQ"/>
+                        <outlet property="passwordTextField" destination="9cl-x1-lbY" id="9MY-0H-7Lh"/>
+                        <segue destination="BaC-41-Uiu" kind="show" identifier="LoginToChat" id="LON-dt-XIc"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bjS-H3-puL" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1784.057971014493" y="477.45535714285711"/>
+            <point key="canvasLocation" x="2694.202898550725" y="477.45535714285711"/>
         </scene>
         <!--Navigation Controller-->
-        <scene sceneID="P1k-mb-V7K">
+        <scene sceneID="Un1-ig-Muu">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="EgA-YH-5EX" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="QHi-tC-LkD" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Llm-mV-g80">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="8YP-U9-Kua">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="aaj-Th-wcY"/>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="aXV-Yh-bi4"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="xxn-kQ-PzA" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hWZ-Tr-kkt" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="28.985507246376812" y="57.589285714285708"/>
+            <point key="canvasLocation" x="939.13043478260875" y="57.589285714285708"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
